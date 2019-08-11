@@ -1,3 +1,11 @@
+#!/bin/bash
+
+echo
+echo "This will install all the necessary package for this Script" 
+echo
+echo "This might take a while" 
+echo
+echo
 sudo apt install curl speedtest-cli netdiscover ipcalc whois nmap bind9-host net-tools iputils-tracepath iptables -y
 echo
 echo
