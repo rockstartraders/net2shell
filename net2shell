@@ -1,0 +1,380 @@
+#! /bin/bash
+
+cat <<  "netshell" 
+
+                           d8   ,8,"88e        888             888 888 
+         888 8e   ,e e,   d88    "  888D  dP"Y 888 ee   ,e e,  888 888 
+         888 88b d88 88b d88888     88P  C88b  888 88b d88 88b 888 888 
+         888 888 888   ,  888      ,*"    Y88D 888 888 888   , 888 888 
+         888 888  "YeeP"  888    8888888 d,dP  888 888  "YeeP" 888 888 
+netshell
+echo
+echo "                                          net2shell                   " 
+echo
+echo  "Maintained by: Rockstartraders aka James Espena" 
+echo  " Via ==> https://github.com/rockstartraders"
+echo
+echo 
+echo "                                        Users Information                     "         
+echo 
+echo 
+echo -n "  Ip address : " && hostname -I
+echo -n "  Public Ip address : " && curl ipecho.net/plain  # curl command is required
+echo 
+echo 
+hostnamectl
+echo 
+echo
+echo "=========================================================================================="
+echo
+echo "                                                 MENU                                     "
+
+
+PS3='Select an option: '
+
+OPTIONS="Speed_Test Scan_devices_connected_to_the_network IP_Calculator Whois View_Open_Port_via_NMAP Kernel_IP_Routing_table Display_IPv4_and_IPv6_Information Display_RAW_Network_Statistics Name_to_IP Ping Traceroute Block_a_Website IPtables_Firewall_Rules_DROP IPtables_Firewall_Rules_ACCEPT IPtables_Remove_from_existing_rule Exit"
+
+
+select CHOICE in $OPTIONS
+
+do
+
+
+     if [ "$CHOICE" = "Speed_Test" ]; then
+       
+          #Speedtest-cli is required
+         
+          echo 
+          echo 
+          echo "Initializing Speed test  "
+          echo "This may take a while... "
+          echo 
+          speedtest-cli
+          echo
+          echo
+          echo "Collecting the simplified result"
+          echo "Please wait further ..."
+          echo
+          speedtest-cli --simple
+          echo
+          echo
+          echo "End of test ... "
+          echo
+          read -p "Press enter to continue .." ## pause function
+          echo
+          echo
+          ./net2shell
+          
+
+          
+
+     elif [ "$CHOICE" = "Scan_devices_connected_to_the_network" ]; then
+            echo
+            echo " This option will scan all the device connected to your network as well as the IP address assigned to them."
+            echo
+            echo -n " Please enter your defaut IP address : "
+            read address
+            echo
+            echo " Netdiscover doesn't have an option to quit please hit q to return to the main menu."
+            echo 
+            echo 
+            read -p "Press enter to continue .." ## pause function
+            echo
+            echo " Scanning it please wait .."
+            echo 
+            sudo netdiscover -r $address
+            echo 
+            echo 
+            echo 
+            echo 
+            echo 
+            ./net2shell            
+           
+
+
+     
+     elif [ "$CHOICE" = "IP_Calculator" ]; then 
+            echo
+            echo " Calculate IP network settings from an IP address."
+            echo
+            echo -n " Please enter the IP address : " && read ip
+            echo
+            echo -n " Please enter the Network prefix or Subnet: "  && read mask
+            echo
+            echo " IP Calculator Result :"
+            echo 
+            ipcalc $ip/$mask
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell 
+
+
+     elif [ "$CHOICE" = "Whois" ]; then 
+            echo
+            echo " This is the whois utility."
+            echo
+            echo -n " Please enter the IP address or Hostname (sample: 8.8.8.8 or google.com) : " && read netfind
+            echo
+            echo " Gathering all the details needed please wait ..."
+            echo
+            whois $netfind
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell   
+
+
+     elif [ "$CHOICE" = "View_Open_Port_via_NMAP" ]; then 
+            echo
+            echo " Welcome to The NMAP Utility"
+            echo " This will scan for all the open ports on your network."
+            echo
+            echo -n " Please enter IP address or Hostname : " && read map
+            echo
+            echo " Gathering all the details needed please wait ..."
+            sudo nmap -open $map
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell   
+
+     elif [ "$CHOICE" = "Kernel_IP_Routing_table" ]; then 
+            echo
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                View Kernel IP Routing Table                              "
+            echo
+            sudo netstat -r
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell      
+
+            #Displaying IPv4 and IPv6 Information             
+
+    elif [ "$CHOICE" = "Display_IPv4_and_IPv6_Information" ]; then 
+            echo
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                Displaying IPv4 and IPv6 Information                      "
+            echo
+            sudo netstat -tp
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell    
+
+    
+     
+     elif [ "$CHOICE" = "Display_RAW_Network_Statistics" ]; then 
+            echo
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                Displaying RAW Network Statistics                      "
+            echo
+            sudo netstat --statistics --raw
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell    
+
+     elif [ "$CHOICE" = "Name_to_IP" ]; then 
+            echo
+            echo " Name to IP or IP address to name via IPv4 or IPv6 format."
+            echo
+            echo -n " Please enter the IP address or Hostname (sample: 8.8.8.8 or www.google.com) : " && read v4v6
+            echo
+            echo " Gathering all the details needed please wait ..."
+            echo
+            sudo host $v4v6
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell   
+
+    elif [ "$CHOICE" = "Ping" ]; then 
+            echo
+            echo
+            echo -n " Please enter the IP address or Hostname that you want to ping (sample: 8.8.8.8 or www.google.com) : " && read result
+            echo
+            echo " Gathering all the details needed please wait ..."
+            echo
+            ping -c 10 $result
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell  
+
+    elif [ "$CHOICE" = "Traceroute" ]; then 
+           
+            echo
+            echo " Maximum Hops is set to 20 Hops only."
+            echo " The default is 30 Hops."
+            echo
+            echo -n " Please enter the Address(example: www.google.com) : " && read jump
+            echo
+            echo " Gathering all the details needed please wait ..."
+            echo
+            tracepath -b -m 20 $jump
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell                  
+
+  
+    elif [ "$CHOICE" = "Block_a_Website" ]; then 
+           
+            echo
+            echo " Use this to block a specific website address."
+            echo " Please make sure that you know what you are doing."
+            echo " Dont blame me if something happened to your machine."
+            echo
+            echo " If you need to unblock it edit this path /etc/hosts (sudo is required)."
+            echo "then remove the localhost and website name."
+            echo
+            echo -n " Please enter the website address(example: www.google.com) : " && read web
+            echo
+            echo
+            sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 127.0.0.1  $web >> /etc/hosts"
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell     
+
+
+     elif [ "$CHOICE" = "IPtables_Firewall_Rules_DROP" ]; then 
+           
+            echo
+            echo " Use this Append iptables"
+            echo " Please make sure that you know what you are doing."
+            echo " Dont blame me if something happened to your machine."
+            echo
+            echo " If you need to do a more advance modification (block specific port etc.)."
+            echo " please go directly to iptables. "
+            echo
+            echo
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                                   IP Tables                              "
+            echo
+            echo
+            sudo iptables -L 
+            echo
+            echo
+            echo
+            echo -n " Please enter the IP address that you need to DROP : " && read ipt
+            sudo iptables -A INPUT -s $ipt -j DROP
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                                 IP Tables (RELOADED)                             "
+            echo
+            sudo iptables -L 
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell            
+
+     elif [ "$CHOICE" = "IPtables_Firewall_Rules_ACCEPT" ]; then 
+           
+            echo
+            echo " Use this Append iptables"
+            echo " Please make sure that you know what you are doing."
+            echo " Dont blame me if something happened to your machine."
+            echo
+            echo " If you need to do a more advance modification (block, append specific port etc.)."
+            echo " please go directly to iptables. "
+            echo
+            echo
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                                   IP Tables                              "
+            echo
+            echo
+            sudo iptables -L 
+            echo
+            echo
+            echo
+            echo -n " Please enter the IP address that you need to ACCEPT : " && read ipta
+            sudo iptables -I INPUT -s $ipta -j ACCEPT
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                                 IP Tables (RELOADED)                             "
+            echo
+            sudo iptables -L 
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell    
+
+     elif [ "$CHOICE" = "IPtables_Remove_from_existing_rule" ]; then 
+           
+            echo
+            echo " Use this Append iptables"
+            echo " Please make sure that you know what you are doing."
+            echo " Dont blame me if something happened to your machine."
+            echo
+            echo " If you need to do a more advance modification (block, append specific port etc.)."
+            echo " please go directly to iptables. "
+            echo
+            echo
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                                   IP Tables                              "
+            echo
+            echo
+            sudo iptables -L 
+            echo
+            echo
+            echo
+            echo -n " Please enter the no. of the rule that you want to delete : " && read numero
+            sudo iptables -D INPUT $numero
+            echo
+            echo "=========================================================================================="
+            echo
+            echo "                                                 IP Tables (RELOADED)                             "
+            echo
+            sudo iptables -L 
+            echo
+            echo
+            read -p "Press enter to continue .." ## pause function
+            echo
+            ./net2shell 
+
+     elif [ "$CHOICE" = "Exit" ]; then 
+           
+            echo
+            echo
+            echo "Thank You .." 
+            exit  
+                               
+       
+     else
+         echo "Option not found !! Please try again."
+
+         fi  
+
+done
+
+
+

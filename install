@@ -1,0 +1,4 @@
+sudo apt install curl speedtest-cli netdiscover ipcalc whois nmap bind9-host net-tools iputils-tracepath iptables -y
+echo
+echo
+echo "Thank You .."
