@@ -9,13 +9,13 @@ cat <<  "netshell"
          888 888  "YeeP"  888    8888888 d,dP  888 888  "YeeP" 888 888 
 netshell
 echo
-echo "                                          net2shell                   " 
+echo  -e "                                           \e[92mnet2shell\e[0m                   " 
 echo
-echo  "Maintained by: Rockstartraders aka James Espena" 
-echo  " Via ==> https://github.com/rockstartraders"
+echo -e "Maintained by: \e[32mRockstartraders aka James Espena\e[0m" 
+echo -e "\e[5m\e[32mVia ==> https://github.com/rockstartraders\e[0m"
 echo
 echo 
-echo "                                        Users Information                     "         
+echo  -e "                                        \e[31mUsers Information\e[0m                     "         
 echo 
 echo 
 echo -n "  Ip address : " && hostname -I
@@ -27,7 +27,7 @@ echo
 echo
 echo "=========================================================================================="
 echo
-echo "                                                 MENU                                     "
+echo -e "                                               \e[5mMENU\e[0m                                     "
 
 
 PS3='Select an option: '
@@ -75,7 +75,7 @@ do
             echo -n " Please enter your defaut IP address : "
             read address
             echo
-            echo " Netdiscover doesn't have an option to quit please hit q to return to the main menu."
+            echo -e " Netdiscover doesn't have an option to quit please hit \e[31mq\e[0m to return to the main menu."
             echo 
             echo 
             read -p "Press enter to continue .." ## pause function
