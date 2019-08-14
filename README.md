@@ -51,7 +51,7 @@ net2shell
 
  ### Screenshot
 
- 1. I remove other information via this screenshot such as IP address and machine name and hostname. 
+ 1. I remove other information via this screenshot such as IP address, machine name and hostname. 
  <br>
 
   ![alt text](net2shell.png)
