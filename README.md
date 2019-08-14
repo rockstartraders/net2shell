@@ -44,4 +44,21 @@ net2shell
 5. Just wait for it to finish then run 
       #### `./net2shell.sh or ./net2shell.sh`
 
+<br>
+<br>
 
+>>
+
+ ### Screenshot
+
+ 1. I remove other information via this screenshot such as IP address and machine name and hostname. 
+ <br>
+
+  ![alt text](net2shell.png)
+
+<br>
+
+2. Menu 
+<br>
+
+![alt text](net2shell2.png)
