@@ -36,6 +36,8 @@ net2shell
    4. run the installer (this will install all the necessary package required for this script). 
 
       #### `./install.sh or ./install`
+
+    Currently I am using debian base distro and using Apt as my package manager but feel free to modify it base on the package manager that you are using.  
         
 <br> 
 
