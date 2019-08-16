@@ -366,7 +366,8 @@ do
             echo
             echo
             echo "Thank You .." 
-            exit  
+            clear
+            exit
                                
        
      else
