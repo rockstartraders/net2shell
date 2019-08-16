@@ -54,11 +54,11 @@ net2shell
  1. I remove other information via this screenshot such as IP address, machine name and hostname. 
  <br>
 
-  ![alt text](net2shell.png)
+  ![alt text](image/net2shell.png)
 
 <br>
-
-2. Menu 
+  
+  2. Menu 
 <br>
 
-![alt text](net2shell2.png)
+![alt text](image/net2shell2.png)
