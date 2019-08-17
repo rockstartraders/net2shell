@@ -10,14 +10,16 @@ cat <<  "netshell"
 netshell
 echo
 echo  -e "                                           \e[92mnet2shell\e[0m                   " 
+echo -e "                           A Script for Common Networking Procedures"
 echo
-echo -e "Maintained by: \e[32mRockstartraders aka James Espena\e[0m" 
-echo -e "\e[5m\e[32mVia ==> https://github.com/rockstartraders\e[0m"
+echo
+echo -e "  Maintained by: \e[5m\e[32mRockstartraders aka James Espena\e[0m" 
+echo -e "                 Via ==> https://github.com/rockstartraders "
 echo
 echo 
-echo  -e "                                        \e[31mUsers Information\e[0m                     "         
-echo 
-echo 
+echo  -e "                                        \e[92mUsers Information\e[0m                     "         
+echo
+echo -n "  Date :" & date +" %A, %B %d, %Y"
 echo -n "  Ip address : " && hostname -I
 echo -n "  Public Ip address : " && curl ipecho.net/plain  # curl command is required
 echo 
