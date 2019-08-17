@@ -364,13 +364,12 @@ do
      elif [ "$CHOICE" = "Exit" ]; then 
            
             echo
-            echo "Exititng .."
-            sleep 2
+            echo "Exiting Please Wait .."
+            sleep 5
             echo 
             echo "Thank You ...." 
             echo 
-            sleep 3
-            echo
+            sleep 2
             clear
             exit
                                
