@@ -370,6 +370,7 @@ do
             echo "Thank You ...." 
             echo 
             sleep 2
+            echo
             clear
             exit
                                
