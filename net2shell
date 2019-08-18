@@ -371,10 +371,10 @@ do
             echo 
             echo "Thank You ...." 
             echo 
-            sleep 2
+            clear && sleep 2
             echo
-            clear
-            exit
+            echo
+            exit 
                                
        
      else
